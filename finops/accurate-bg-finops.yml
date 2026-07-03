@@ -1,0 +1,92 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Accurate Background
+providerId: accurate-bg
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Background Checks
+- Employment Screening
+- Compliance
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Accurate Background spend. Cost is driven by consumption of
+  screening services, not by API calls: each ordered package and each individual
+  search (criminal, SSN trace, employment/education verification, drug/health,
+  MVR, identity/work authorization, international) is a billable unit, plus
+  pass-through court, verification, and third-party access fees. The developer
+  account and sandbox are free; production billing accrues per screening under a
+  services agreement. There is no separate metered API/platform fee in the public
+  documentation.
+notes: >-
+  Per-unit screening prices are not publicly listed and vary by package,
+  jurisdiction, and pass-through fees; reconcile with Accurate. The largest and
+  most variable cost drivers are court-access and verification pass-through fees
+  on order volume.
+sources:
+- https://www.accurate.com/solutions/background-check-api/
+- https://developer.accuratebackground.com/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Accurate Background
+serviceCategory: Background Screening and Compliance
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Accurate API
+  ServiceCategory: Background Screening and Compliance
+  ProviderName: Accurate Background
+  PublisherName: Accurate Background
+  InvoiceIssuerName: Accurate Background
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: screenings_ordered
+  description: Background-check orders placed, billed per ordered package.
+  unit: orders
+  aggregation: sum
+  dimensions:
+  - account
+  - package
+- name: searches_run
+  description: Individual searches within an order (criminal, verification, drug, MVR, international, etc.), each billable.
+  unit: searches
+  aggregation: sum
+  dimensions:
+  - account
+  - search_type
+- name: pass_through_fees
+  description: Court-access, verification, and third-party pass-through fees incurred fulfilling a screening.
+  unit: fees
+  aggregation: sum
+  dimensions:
+  - account
+  - jurisdiction
+principles:
+- name: Visibility
+  description: Track orders and searches per account and package; separate base screening cost from pass-through court/verification fees.
+- name: Allocation
+  description: Tag orders to the requisition, team, or client so screening spend maps to internal cost centers.
+- name: Optimization
+  description: Right-size packages to role/jurisdiction to avoid unnecessary searches; use candidate-data collection workflows to reduce reruns; adjudicate via API to cut manual review cost.
+- name: Accountability
+  description: Assign owners per hiring program; review monthly screening volume and pass-through fees against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

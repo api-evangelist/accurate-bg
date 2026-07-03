@@ -1,0 +1,384 @@
+openapi: 3.0.3
+info:
+  title: Accurate Background API
+  description: >-
+    The Accurate API (v3) lets platforms embed employment background screening
+    into their own web and mobile applications. Integrators create candidates,
+    order preset or custom screening packages, track order status and estimated
+    completion time, attach documents, adjudicate results, and retrieve
+    completed reports. A free developer account and a sandbox environment are
+    available for testing; production access is provisioned under a screening
+    services agreement.
+
+
+    This OpenAPI document was authored by API Evangelist from Accurate's
+    published developer documentation (developer.accuratebackground.com and
+    accurate.readme.io). Paths and HTTP methods reflect the documented endpoints;
+    request and response schemas are summarized rather than exhaustively modeled.
+    Verify the authoritative contract in Accurate's own API reference.
+  version: '3.0'
+  contact:
+    name: Accurate Background
+    url: https://developer.accuratebackground.com/
+servers:
+  - url: https://api.accuratebackground.com/v3
+    description: Production
+security:
+  - oauth2ClientCredentials: []
+tags:
+  - name: Candidates
+    description: Screening subjects that background checks are run against.
+  - name: Orders
+    description: Background-check orders placed against a candidate.
+  - name: Packages
+    description: Screening packages available on an account.
+  - name: Reports
+    description: Completed screening results and reports.
+  - name: Documents
+    description: Supporting documents attached to an order.
+  - name: Adjudication
+    description: Pass/fail decisioning on completed orders.
+  - name: Verifications
+    description: Employment and education verification attempts.
+  - name: Notifications
+    description: Candidate-facing notifications.
+  - name: Utility
+    description: Connectivity and health checks.
+paths:
+  /candidates:
+    get:
+      tags: [Candidates]
+      summary: Retrieve all candidates
+      description: Retrieve all candidates for the authenticated company account.
+      responses:
+        '200':
+          description: A list of candidates.
+  /candidate:
+    post:
+      tags: [Candidates]
+      summary: Create candidate
+      description: >-
+        Creates a candidate that can then be submitted within an order-creation
+        payload.
+      responses:
+        '201':
+          description: Candidate created.
+    put:
+      tags: [Candidates]
+      summary: Update candidate
+      description: >-
+        Updates an existing candidate. Changes apply to future orders only.
+      responses:
+        '200':
+          description: Candidate updated.
+  /candidate/{id}:
+    get:
+      tags: [Candidates]
+      summary: Retrieve candidate by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The requested candidate.
+  /order:
+    post:
+      tags: [Orders]
+      summary: Create order
+      description: Request to complete a background check on a specific candidate.
+      responses:
+        '201':
+          description: Order created.
+  /orders:
+    get:
+      tags: [Orders]
+      summary: Retrieve all orders
+      description: Retrieve and filter orders by query parameters.
+      responses:
+        '200':
+          description: A list of orders.
+  /order/{id}:
+    get:
+      tags: [Orders]
+      summary: Retrieve order by ID
+      description: Retrieve a single order, its status, and its searches.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The requested order.
+  /order/{id}/eta:
+    get:
+      tags: [Orders]
+      summary: Get order ETA
+      description: Estimated completion time for an order.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The order ETA.
+  /order/{id}/changes:
+    get:
+      tags: [Orders]
+      summary: Get order changes
+      description: List of modifications made to an order.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The order change history.
+  /order/{id}/reinitiate:
+    post:
+      tags: [Orders]
+      summary: Reinitiate order
+      description: Reset a cancelled interactive order so the candidate can resume.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Order reinitiated.
+  /order/{id}/invitation:
+    post:
+      tags: [Orders]
+      summary: Resend invitation
+      description: Resend the candidate invitation email for an interactive order.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Invitation resent.
+  /order/{id}/invitation-link:
+    get:
+      tags: [Reports]
+      summary: Get candidate invitation link
+      description: Retrieve the candidate login/invitation link for an order.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The invitation link.
+  /order/{id}/report:
+    get:
+      tags: [Reports]
+      summary: Retrieve report
+      description: >-
+        Retrieve the completed background-check report for an order as a PDF or
+        base64-encoded HTML once the order is complete.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The completed report.
+  /packages:
+    get:
+      tags: [Packages]
+      summary: Retrieve packages
+      description: Retrieve all active screening packages on the account.
+      responses:
+        '200':
+          description: A list of packages.
+  /package/{type}:
+    get:
+      tags: [Packages]
+      summary: Get package by type
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The requested package.
+  /order/{id}/document:
+    post:
+      tags: [Documents]
+      summary: Upload document
+      description: >-
+        Upload a supporting document to an order. Supports PDF, JPG, PNG, DOC,
+        and DOCX up to 15MB.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Document uploaded.
+  /order/{id}/documents:
+    get:
+      tags: [Documents]
+      summary: Retrieve documents
+      description: List the documents attached to an order.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of documents.
+  /document/{id}:
+    get:
+      tags: [Documents]
+      summary: Get document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Document metadata.
+    delete:
+      tags: [Documents]
+      summary: Delete document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Document deleted.
+  /document/{id}/download:
+    get:
+      tags: [Documents]
+      summary: Download document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The document file.
+  /order/{id}/adjudicate:
+    post:
+      tags: [Adjudication]
+      summary: Adjudicate order
+      description: >-
+        Make a pass/fail adjudication decision on a completed order without
+        logging into the portal.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Adjudication recorded.
+  /order/{id}/reassess:
+    post:
+      tags: [Adjudication]
+      summary: Reassess adjudication
+      description: >-
+        Reassess an adjudication where jurisdiction rules require it (for example
+        LA City/County individualized assessment).
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Reassessment recorded.
+  /order/{id}/location:
+    put:
+      tags: [Adjudication]
+      summary: Update position location
+      description: Update the job/position location used for compliant decisioning.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Location updated.
+  /order/{id}/verification-attempts:
+    get:
+      tags: [Verifications]
+      summary: Get verification attempts
+      description: >-
+        Retrieve the history of employment and education verification attempts
+        for an order.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Verification attempt history.
+  /notification/subject:
+    post:
+      tags: [Notifications]
+      summary: Create subject notification
+      description: >-
+        Send the screening subject a candidate-facing notification, such as a
+        copy of their completed report.
+      responses:
+        '201':
+          description: Notification created.
+  /alive:
+    get:
+      tags: [Utility]
+      summary: Alive / ping test
+      description: Connectivity test that does not require authentication.
+      security: []
+      responses:
+        '200':
+          description: Service is reachable.
+components:
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      description: >-
+        Accurate API credentials are a ClientID / ClientSecret pair obtained from
+        the Accurate developer portal. Credentials are exchanged (HTTP Basic) for
+        an access token that authorizes subsequent requests.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.accuratebackground.com/v3/oauth/token
+          scopes: {}

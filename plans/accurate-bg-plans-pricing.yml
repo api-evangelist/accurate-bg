@@ -1,0 +1,108 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Accurate Background
+providerId: accurate-bg
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Background Checks
+- Employment Screening
+- Compliance
+- Plans
+description: >-
+  Accurate Background does not publish public list pricing for its API or
+  screening services. Access starts with a free developer account and sandbox
+  environment for building and testing against the Accurate API (v3) at no cost.
+  Production access is provisioned under a screening services agreement; billing
+  is per screening - each ordered package and each individual search (criminal,
+  SSN trace, verification, drug/health, MVR, international, etc.) carries its own
+  cost, plus applicable third-party access and court/verification pass-through
+  fees. Volume and package mix are negotiated with Accurate sales.
+notes: >-
+  Per-check and per-package prices are not publicly listed and vary by package
+  configuration, jurisdiction, and pass-through fees. Verify current terms with
+  Accurate sales during reconciliation. The API itself carries no separate
+  platform fee beyond the underlying screening charges.
+sources:
+- https://www.accurate.com/solutions/background-check-api/
+- https://developer.accuratebackground.com/
+- https://www.accurate.com/blog/version-3-of-the-accurate-background-check-api-is-now-available/
+plans:
+- id: accurate-bg-developer-sandbox
+  name: Developer / Sandbox
+  type: free
+  description: >-
+    Free developer account with a sandbox environment for testing the Accurate
+    API (v3) immediately, without contacting sales. Includes API credentials,
+    documentation, quick-start guides, and webhook configuration for
+    integration development.
+  entries:
+  - label: Sandbox Access
+    name: sandbox_access
+    type: flat
+    metric: environment
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free (sandbox; test data only)
+    userMultiplied: false
+  elements:
+  - name: Free Developer Account
+  - name: Sandbox Environment
+  - name: API Credentials (ClientID / ClientSecret)
+  - name: Webhook Configuration
+  - name: Developer Documentation
+- id: accurate-bg-production
+  name: Production (Screening Services Agreement)
+  type: usage
+  description: >-
+    Production API access under a screening services agreement. Billed per
+    screening - each ordered package and individual search has its own price,
+    plus court, verification, and third-party pass-through fees. Preset or
+    custom packages.
+  entries:
+  - label: Per Screening / Package
+    name: per_screening
+    type: usage
+    metric: screenings
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: per-screening (contact sales; varies by package and pass-through fees)
+    userMultiplied: false
+  elements:
+  - name: Production API Access
+  - name: Preset and Custom Packages
+  - name: U.S. and International Screening
+  - name: Compliance Tooling
+  - name: Adjudication
+- id: accurate-bg-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Negotiated agreement for high-volume integrators, ATS/HRIS platforms, and
+    staffing providers - volume pricing, dedicated support, compliance and
+    security review, and SLAs. Contact Accurate.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Volume Pricing
+  - name: Dedicated Support
+  - name: SLAs
+  - name: Compliance and Security Review
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

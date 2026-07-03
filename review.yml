@@ -1,0 +1,107 @@
+aid: accurate-bg
+name: Accurate Background
+review:
+  question: Does Accurate Background expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-03'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Accurate Background's public API (the
+    Accurate API v3) is request/response REST over HTTPS. Its only server-push
+    mechanism is webhooks - server-to-endpoint HTTP callbacks configured in the
+    developer portal that POST order/report status events to a consumer-hosted
+    HTTPS URL. There is no bidirectional or streaming WebSocket (ws:// or wss://)
+    transport on Accurate's own API to model.
+findings:
+  summary: |
+    Accurate Background does not publish a documented public WebSocket API.
+    Accurate is an employment background screening company. Its public developer
+    surface is the Accurate API (v3), a REST/JSON API documented at
+    developer.accuratebackground.com and accurate.readme.io, with a free developer
+    account and a sandbox environment. The API is genuinely public/self-serve for
+    development (sign up, get ClientID/ClientSecret, test in sandbox), while
+    production screening runs under a services agreement. All documented endpoints
+    are request/response REST over HTTPS (base https://api.accuratebackground.com/v3).
+    Asynchronous status delivery is handled by webhooks (HTTP callbacks), not a
+    WebSocket. No realtime, bidirectional, or streaming WebSocket endpoint is
+    documented on Accurate's API.
+  accessModel: |
+    Public/self-serve for development: a free developer account and sandbox are
+    available without contacting sales, with API credentials and documentation.
+    Production access to run real background checks is provisioned under a
+    screening services agreement (contact sales); billing is per screening. This
+    is a real, documented public API - not a fully gated/undocumented partner API.
+  authentication: |
+    API credentials are a ClientID / ClientSecret pair issued from the developer
+    portal, exchanged (HTTP Basic) for an access token (OAuth2 client-credentials
+    style) used to authorize requests. The /alive connectivity check requires no
+    authentication.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.accuratebackground.com/v3
+      documented: true
+      note: Accurate API v3. Request/response JSON (POST accepts form-encoded or application/json; PUT is form-encoded).
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Portal-configured event callbacks that POST order/report status updates to a consumer HTTPS endpoint. Server-to-endpoint HTTP, not WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Accurate's developer documentation as of the review date.
+  endpointsModeled: false
+  endpointsConfirmedRest:
+    - GET    https://api.accuratebackground.com/v3/candidates
+    - POST   https://api.accuratebackground.com/v3/candidate
+    - PUT    https://api.accuratebackground.com/v3/candidate
+    - GET    https://api.accuratebackground.com/v3/candidate/{id}
+    - POST   https://api.accuratebackground.com/v3/order
+    - GET    https://api.accuratebackground.com/v3/orders
+    - GET    https://api.accuratebackground.com/v3/order/{id}
+    - GET    https://api.accuratebackground.com/v3/order/{id}/eta
+    - GET    https://api.accuratebackground.com/v3/order/{id}/changes
+    - POST   https://api.accuratebackground.com/v3/order/{id}/reinitiate
+    - POST   https://api.accuratebackground.com/v3/order/{id}/invitation
+    - GET    https://api.accuratebackground.com/v3/order/{id}/invitation-link
+    - GET    https://api.accuratebackground.com/v3/order/{id}/report
+    - GET    https://api.accuratebackground.com/v3/packages
+    - GET    https://api.accuratebackground.com/v3/package/{type}
+    - POST   https://api.accuratebackground.com/v3/order/{id}/document
+    - GET    https://api.accuratebackground.com/v3/order/{id}/documents
+    - GET    https://api.accuratebackground.com/v3/document/{id}
+    - GET    https://api.accuratebackground.com/v3/document/{id}/download
+    - DELETE https://api.accuratebackground.com/v3/document/{id}
+    - POST   https://api.accuratebackground.com/v3/order/{id}/adjudicate
+    - POST   https://api.accuratebackground.com/v3/order/{id}/reassess
+    - PUT    https://api.accuratebackground.com/v3/order/{id}/location
+    - GET    https://api.accuratebackground.com/v3/order/{id}/verification-attempts
+    - POST   https://api.accuratebackground.com/v3/notification/subject
+    - GET    https://api.accuratebackground.com/v3/alive
+sources:
+  - url: https://developer.accuratebackground.com/
+    type: Documentation
+    note: Accurate developer portal - Guides, API Documentation, Discussions, Sandbox/Production, webhook configuration.
+  - url: https://accurate.readme.io/reference
+    type: APIReference
+    note: Accurate API v3 reference (readme.io). Endpoint index available at accurate.readme.io/llms.txt.
+  - url: https://accurate.readme.io/docs/api-and-http-actions
+    type: Documentation
+    note: HTTP actions - POST (create), GET (retrieve), PUT (edit); POST accepts form-encoded or JSON body, PUT form-encoded.
+  - url: https://www.accurate.com/solutions/background-check-api/
+    type: ProductPage
+    note: Background Check API product page - capabilities, packages, compliance tooling, contact sales.
+  - url: https://www.accurate.com/blog/version-3-of-the-accurate-background-check-api-is-now-available/
+    type: Blog
+    note: Announces v3, free developer account, and sandbox testing.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Accurate's public API (Accurate API v3)
+    is request/response REST over HTTPS, and its only asynchronous delivery is
+    webhook HTTP callbacks. No AsyncAPI document was created because there is no
+    server-push WebSocket/streaming transport on Accurate's own API to model. An
+    OpenAPI document was authored from the published documentation covering the
+    documented REST endpoints.

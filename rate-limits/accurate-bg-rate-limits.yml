@@ -1,0 +1,57 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Accurate Background
+providerId: accurate-bg
+created: '2026-07-03'
+modified: '2026-07-03'
+reconciled: false
+tags:
+- Background Checks
+- Employment Screening
+- Rate Limiting
+- Quotas
+description: >-
+  Accurate Background does not publish fixed numeric rate limits for the
+  Accurate API (v3) in its public developer documentation. In practice, request
+  throughput is a control-plane concern (creating candidates, placing orders,
+  polling status), while the meaningful throughput is the volume of background
+  screenings ordered, which is governed by the account's screening services
+  agreement rather than a per-minute request cap. Standard HTTP semantics apply,
+  and consumers should implement retry-with-backoff and rely on webhooks instead
+  of tight polling for order/report status.
+notes: >-
+  No per-account or per-endpoint numeric request-rate limit is documented as of
+  the review date. Confirm any account-specific throttling with Accurate during
+  onboarding. Prefer webhook status callbacks over polling GET /order/{id} and
+  GET /order/{id}/eta.
+sources:
+- https://accurate.readme.io/reference
+- https://developer.accuratebackground.com/
+- https://accurate.readme.io/docs/api-and-http-actions
+responseCodes:
+  throttled: 429
+limits:
+- name: API Requests
+  scope: account
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit is documented for the Accurate API.
+- name: Screening Volume
+  scope: account
+  metric: screenings
+  limit: per agreement
+  notes: Effective throughput is the number of ordered screenings, governed by the screening services agreement.
+- name: Document Upload Size
+  scope: request
+  metric: bytes
+  limit: 15728640
+  notes: Uploaded documents are limited to 15MB (PDF, JPG, PNG, DOC, DOCX).
+policies:
+- name: Backoff Strategy
+  description: Implement exponential backoff with jitter and honor Retry-After on 429 responses.
+- name: Prefer Webhooks
+  description: Use configured webhook status callbacks for order/report completion rather than polling to reduce request volume.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
