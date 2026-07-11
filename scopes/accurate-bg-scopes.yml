@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/accurate-bg-openapi.yml
+docs: https://accurate.readme.io/reference/authentication
+note: Accurate's API authenticates via an OAuth 2.0 client-credentials exchange of
+  a ClientID/ClientSecret pair from the developer portal, and no OAuth scopes are
+  documented anywhere in the API reference or developer portal
+  (https://accurate.readme.io/reference/authentication).
+schemes:
+- name: oauth2ClientCredentials
+  source: openapi/accurate-bg-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.accuratebackground.com/v3/oauth/token
+  description: Accurate API credentials are a ClientID / ClientSecret pair obtained from the
+    Accurate developer portal. Credentials are exchanged (HTTP Basic) for an access token that
+    authorizes subsequent requests.
+scopes: []

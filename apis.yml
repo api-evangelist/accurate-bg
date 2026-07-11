@@ -201,6 +201,8 @@ apis:
     poll for status. Server-to-endpoint HTTP callbacks, configured per environment
     (sandbox and production).
 common:
+- type: OAuthScopes
+  url: scopes/accurate-bg-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/accurate-background
 - type: Website
