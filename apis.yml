@@ -201,6 +201,10 @@ apis:
     poll for status. Server-to-endpoint HTTP callbacks, configured per environment
     (sandbox and production).
 common:
+- type: DomainSecurity
+  url: security/accurate-bg-domain-security.yml
+- type: Authentication
+  url: authentication/accurate-bg-authentication.yml
 - type: OAuthScopes
   url: scopes/accurate-bg-scopes.yml
 - type: LinkedIn
