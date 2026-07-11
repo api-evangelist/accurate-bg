@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/accurate-bg-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: oauth2ClientCredentials
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.accuratebackground.com/v3/oauth/token
+    scopes: 0
+  description: Accurate API credentials are a ClientID / ClientSecret pair obtained from the
+    Accurate developer portal. Credentials are exchanged (HTTP Basic) for an access token that
+    authorizes subsequent requests.
+  sources:
+  - openapi/accurate-bg-openapi.yml
