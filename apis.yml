@@ -201,6 +201,8 @@ apis:
     poll for status. Server-to-endpoint HTTP callbacks, configured per environment
     (sandbox and production).
 common:
+- type: AgenticAccess
+  url: agentic-access/accurate-bg-agentic-access.yml
 - type: DomainSecurity
   url: security/accurate-bg-domain-security.yml
 - type: Authentication
