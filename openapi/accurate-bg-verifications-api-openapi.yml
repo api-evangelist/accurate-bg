@@ -1,0 +1,44 @@
+openapi: 3.0.3
+info:
+  title: Accurate Background Adjudication Verifications API
+  description: 'The Accurate API (v3) lets platforms embed employment background screening into their own web and mobile applications. Integrators create candidates, order preset or custom screening packages, track order status and estimated completion time, attach documents, adjudicate results, and retrieve completed reports. A free developer account and a sandbox environment are available for testing; production access is provisioned under a screening services agreement.
+
+
+    This OpenAPI document was authored by API Evangelist from Accurate''s published developer documentation (developer.accuratebackground.com and accurate.readme.io). Paths and HTTP methods reflect the documented endpoints; request and response schemas are summarized rather than exhaustively modeled. Verify the authoritative contract in Accurate''s own API reference.'
+  version: '3.0'
+  contact:
+    name: Accurate Background
+    url: https://developer.accuratebackground.com/
+servers:
+- url: https://api.accuratebackground.com/v3
+  description: Production
+security:
+- oauth2ClientCredentials: []
+tags:
+- name: Verifications
+  description: Employment and education verification attempts.
+paths:
+  /order/{id}/verification-attempts:
+    get:
+      tags:
+      - Verifications
+      summary: Get verification attempts
+      description: Retrieve the history of employment and education verification attempts for an order.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Verification attempt history.
+components:
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      description: Accurate API credentials are a ClientID / ClientSecret pair obtained from the Accurate developer portal. Credentials are exchanged (HTTP Basic) for an access token that authorizes subsequent requests.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.accuratebackground.com/v3/oauth/token
+          scopes: {}

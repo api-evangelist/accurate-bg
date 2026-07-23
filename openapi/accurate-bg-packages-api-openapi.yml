@@ -1,0 +1,52 @@
+openapi: 3.0.3
+info:
+  title: Accurate Background Adjudication Packages API
+  description: 'The Accurate API (v3) lets platforms embed employment background screening into their own web and mobile applications. Integrators create candidates, order preset or custom screening packages, track order status and estimated completion time, attach documents, adjudicate results, and retrieve completed reports. A free developer account and a sandbox environment are available for testing; production access is provisioned under a screening services agreement.
+
+
+    This OpenAPI document was authored by API Evangelist from Accurate''s published developer documentation (developer.accuratebackground.com and accurate.readme.io). Paths and HTTP methods reflect the documented endpoints; request and response schemas are summarized rather than exhaustively modeled. Verify the authoritative contract in Accurate''s own API reference.'
+  version: '3.0'
+  contact:
+    name: Accurate Background
+    url: https://developer.accuratebackground.com/
+servers:
+- url: https://api.accuratebackground.com/v3
+  description: Production
+security:
+- oauth2ClientCredentials: []
+tags:
+- name: Packages
+  description: Screening packages available on an account.
+paths:
+  /packages:
+    get:
+      tags:
+      - Packages
+      summary: Retrieve packages
+      description: Retrieve all active screening packages on the account.
+      responses:
+        '200':
+          description: A list of packages.
+  /package/{type}:
+    get:
+      tags:
+      - Packages
+      summary: Get package by type
+      parameters:
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The requested package.
+components:
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      description: Accurate API credentials are a ClientID / ClientSecret pair obtained from the Accurate developer portal. Credentials are exchanged (HTTP Basic) for an access token that authorizes subsequent requests.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.accuratebackground.com/v3/oauth/token
+          scopes: {}
