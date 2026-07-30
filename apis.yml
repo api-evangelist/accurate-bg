@@ -12,7 +12,20 @@ description: Accurate Background is an employment background screening and workf
   reports, adjudicate results, and receive status updates via webhooks. A free
   developer account and sandbox environment are available for testing; production
   access is provisioned under a screening services agreement.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/accurate-bg.png
 tags:
 - Background Checks
 - Employment Screening
@@ -24,163 +37,6 @@ created: '2026-07-03'
 modified: '2026-07-03'
 specificationVersion: '0.19'
 apis:
-- aid: accurate-bg:accurate-bg-candidates-api
-  name: Accurate Candidates API
-  tags:
-  - Candidates
-  - Applicants
-  - Screening
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://accurate.readme.io/reference
-  baseURL: https://api.accuratebackground.com/v3
-  properties:
-  - url: https://developer.accuratebackground.com/
-    type: Documentation
-  - url: https://accurate.readme.io/reference
-    type: APIReference
-  - url: openapi/accurate-bg-openapi.yml
-    type: OpenAPI
-  description: Create, retrieve, list, and update the candidates (screening subjects)
-    that background checks are run against. A candidate is created first and then
-    referenced in an order-creation payload; candidate updates apply to future
-    orders only.
-- aid: accurate-bg:accurate-bg-orders-api
-  name: Accurate Orders API
-  tags:
-  - Orders
-  - Background Checks
-  - Workflow
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://accurate.readme.io/reference
-  baseURL: https://api.accuratebackground.com/v3
-  properties:
-  - url: https://developer.accuratebackground.com/
-    type: Documentation
-  - url: https://accurate.readme.io/reference
-    type: APIReference
-  - url: openapi/accurate-bg-openapi.yml
-    type: OpenAPI
-  description: Place and manage background-check orders against a candidate - create
-    an order for a chosen package, list and retrieve orders, check estimated
-    completion time (ETA), review order changes, reinitiate cancelled interactive
-    orders, and resend candidate invitations.
-- aid: accurate-bg:accurate-bg-packages-api
-  name: Accurate Packages API
-  tags:
-  - Packages
-  - Products
-  - Screening
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://accurate.readme.io/reference
-  baseURL: https://api.accuratebackground.com/v3
-  properties:
-  - url: https://developer.accuratebackground.com/
-    type: Documentation
-  - url: https://accurate.readme.io/reference
-    type: APIReference
-  - url: openapi/accurate-bg-openapi.yml
-    type: OpenAPI
-  description: List the active screening packages configured on an account and
-    retrieve a package by type. Packages bundle the individual searches (criminal,
-    verification, drug, MVR, international, etc.) that an order runs; integrators
-    can use preset packages or account-configured custom packages.
-- aid: accurate-bg:accurate-bg-reports-api
-  name: Accurate Reports API
-  tags:
-  - Reports
-  - Results
-  - Screening
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://accurate.readme.io/reference
-  baseURL: https://api.accuratebackground.com/v3
-  properties:
-  - url: https://developer.accuratebackground.com/
-    type: Documentation
-  - url: https://accurate.readme.io/reference
-    type: APIReference
-  - url: openapi/accurate-bg-openapi.yml
-    type: OpenAPI
-  description: Retrieve completed screening results. The report endpoint returns the
-    finished background-check report for an order as a PDF or base64-encoded HTML
-    once the order is complete, and exposes the candidate invitation link for
-    interactive orders.
-- aid: accurate-bg:accurate-bg-documents-api
-  name: Accurate Documents API
-  tags:
-  - Documents
-  - Uploads
-  - Attachments
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://accurate.readme.io/reference
-  baseURL: https://api.accuratebackground.com/v3
-  properties:
-  - url: https://developer.accuratebackground.com/
-    type: Documentation
-  - url: https://accurate.readme.io/reference
-    type: APIReference
-  - url: openapi/accurate-bg-openapi.yml
-    type: OpenAPI
-  description: Attach and manage supporting documents on an order - upload PDF, JPG,
-    PNG, DOC, or DOCX files (up to 15MB), list an order's documents, and get,
-    download, or delete an individual document.
-- aid: accurate-bg:accurate-bg-adjudication-api
-  name: Accurate Adjudication API
-  tags:
-  - Adjudication
-  - Compliance
-  - Decisioning
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://accurate.readme.io/reference
-  baseURL: https://api.accuratebackground.com/v3
-  properties:
-  - url: https://developer.accuratebackground.com/
-    type: Documentation
-  - url: https://accurate.readme.io/reference
-    type: APIReference
-  - url: openapi/accurate-bg-openapi.yml
-    type: OpenAPI
-  description: Programmatically make an adjudication decision (pass/fail) on a
-    completed order without logging into the portal, reassess an adjudication where
-    jurisdiction rules require it, and update the position/job location that drives
-    compliant decisioning.
-- aid: accurate-bg:accurate-bg-verifications-api
-  name: Accurate Verifications API
-  tags:
-  - Verifications
-  - Employment
-  - Education
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://accurate.readme.io/reference
-  baseURL: https://api.accuratebackground.com/v3
-  properties:
-  - url: https://developer.accuratebackground.com/
-    type: Documentation
-  - url: https://accurate.readme.io/reference
-    type: APIReference
-  - url: openapi/accurate-bg-openapi.yml
-    type: OpenAPI
-  description: Retrieve the history of employment and education verification attempts
-    for an order, giving integrators visibility into outreach progress on
-    verification-heavy screenings.
-- aid: accurate-bg:accurate-bg-notifications-api
-  name: Accurate Notifications API
-  tags:
-  - Notifications
-  - Candidate Communication
-  - Compliance
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://accurate.readme.io/reference
-  baseURL: https://api.accuratebackground.com/v3
-  properties:
-  - url: https://developer.accuratebackground.com/
-    type: Documentation
-  - url: https://accurate.readme.io/reference
-    type: APIReference
-  - url: openapi/accurate-bg-openapi.yml
-    type: OpenAPI
-  description: Trigger candidate-facing notifications, such as sending the screening
-    subject a copy of their completed report, supporting compliant candidate
-    communication workflows.
 - aid: accurate-bg:accurate-bg-webhooks-api
   name: Accurate Webhooks
   tags:
@@ -195,11 +51,137 @@ apis:
     type: Documentation
   - url: https://accurate.readme.io/reference
     type: APIReference
-  description: Webhook event notifications configured in the Accurate developer
-    portal deliver order and report status updates (for example when an order
-    completes) to a consumer-hosted HTTPS endpoint, so integrators do not have to
-    poll for status. Server-to-endpoint HTTP callbacks, configured per environment
-    (sandbox and production).
+  description: >-
+    Webhook event notifications configured in the Accurate developer portal deliver order and report status
+    updates (for example when an order completes) to a consumer-hosted HTTPS endpoint, so integrators
+    do not have to poll for status. Server-to-endpoint HTTP callbacks, configured per environment (sandbox
+    and production).
+- aid: accurate-bg:accurate-bg-adjudication-api
+  name: Accurate Background Adjudication API
+  description: Pass/fail decisioning on completed orders.
+  humanURL: https://accurate.readme.io/reference
+  baseURL: https://api.accuratebackground.com/v3
+  tags:
+  - Adjudication
+  properties:
+  - type: OpenAPI
+    url: openapi/accurate-bg-adjudication-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuratebackground.com/
+  - type: APIReference
+    url: https://accurate.readme.io/reference
+- aid: accurate-bg:accurate-bg-candidates-api
+  name: Accurate Background Candidates API
+  description: Screening subjects that background checks are run against.
+  humanURL: https://accurate.readme.io/reference
+  baseURL: https://api.accuratebackground.com/v3
+  tags:
+  - Candidates
+  properties:
+  - type: OpenAPI
+    url: openapi/accurate-bg-candidates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuratebackground.com/
+  - type: APIReference
+    url: https://accurate.readme.io/reference
+- aid: accurate-bg:accurate-bg-documents-api
+  name: Accurate Background Documents API
+  description: Supporting documents attached to an order.
+  humanURL: https://accurate.readme.io/reference
+  baseURL: https://api.accuratebackground.com/v3
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/accurate-bg-documents-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuratebackground.com/
+  - type: APIReference
+    url: https://accurate.readme.io/reference
+- aid: accurate-bg:accurate-bg-notifications-api
+  name: Accurate Background Notifications API
+  description: Candidate-facing notifications.
+  humanURL: https://accurate.readme.io/reference
+  baseURL: https://api.accuratebackground.com/v3
+  tags:
+  - Notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/accurate-bg-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuratebackground.com/
+  - type: APIReference
+    url: https://accurate.readme.io/reference
+- aid: accurate-bg:accurate-bg-orders-api
+  name: Accurate Background Orders API
+  description: Background-check orders placed against a candidate.
+  humanURL: https://accurate.readme.io/reference
+  baseURL: https://api.accuratebackground.com/v3
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/accurate-bg-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuratebackground.com/
+  - type: APIReference
+    url: https://accurate.readme.io/reference
+- aid: accurate-bg:accurate-bg-packages-api
+  name: Accurate Background Packages API
+  description: Screening packages available on an account.
+  humanURL: https://accurate.readme.io/reference
+  baseURL: https://api.accuratebackground.com/v3
+  tags:
+  - Packages
+  properties:
+  - type: OpenAPI
+    url: openapi/accurate-bg-packages-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuratebackground.com/
+  - type: APIReference
+    url: https://accurate.readme.io/reference
+- aid: accurate-bg:accurate-bg-reports-api
+  name: Accurate Background Reports API
+  description: Completed screening results and reports.
+  humanURL: https://accurate.readme.io/reference
+  baseURL: https://api.accuratebackground.com/v3
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/accurate-bg-reports-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuratebackground.com/
+  - type: APIReference
+    url: https://accurate.readme.io/reference
+- aid: accurate-bg:accurate-bg-utility-api
+  name: Accurate Background Utility API
+  description: Connectivity and health checks.
+  humanURL: https://accurate.readme.io/reference
+  baseURL: https://api.accuratebackground.com/v3
+  tags:
+  - Utility
+  properties:
+  - type: OpenAPI
+    url: openapi/accurate-bg-utility-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuratebackground.com/
+  - type: APIReference
+    url: https://accurate.readme.io/reference
+- aid: accurate-bg:accurate-bg-verifications-api
+  name: Accurate Background Verifications API
+  description: Employment and education verification attempts.
+  humanURL: https://accurate.readme.io/reference
+  baseURL: https://api.accuratebackground.com/v3
+  tags:
+  - Verifications
+  properties:
+  - type: OpenAPI
+    url: openapi/accurate-bg-verifications-api-openapi.yml
+  - type: Documentation
+    url: https://developer.accuratebackground.com/
+  - type: APIReference
+    url: https://accurate.readme.io/reference
 common:
 - type: AgenticAccess
   url: agentic-access/accurate-bg-agentic-access.yml
