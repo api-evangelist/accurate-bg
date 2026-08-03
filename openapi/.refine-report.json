@@ -1,0 +1,30 @@
+{
+  "provider": "accurate-bg",
+  "sources": [
+    "accurate-bg-adjudication-api-openapi.yml",
+    "accurate-bg-candidates-api-openapi.yml",
+    "accurate-bg-documents-api-openapi.yml",
+    "accurate-bg-notifications-api-openapi.yml",
+    "accurate-bg-orders-api-openapi.yml",
+    "accurate-bg-packages-api-openapi.yml",
+    "accurate-bg-reports-api-openapi.yml",
+    "accurate-bg-utility-api-openapi.yml",
+    "accurate-bg-verifications-api-openapi.yml"
+  ],
+  "outputs": [
+    "accurate-bg-adjudication-api-openapi.yml",
+    "accurate-bg-candidates-api-openapi.yml",
+    "accurate-bg-documents-api-openapi.yml",
+    "accurate-bg-notifications-api-openapi.yml",
+    "accurate-bg-orders-api-openapi.yml",
+    "accurate-bg-packages-api-openapi.yml",
+    "accurate-bg-reports-api-openapi.yml",
+    "accurate-bg-utility-api-openapi.yml",
+    "accurate-bg-verifications-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
