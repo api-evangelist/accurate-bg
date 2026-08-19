@@ -1,0 +1,133 @@
+{
+  "item": [
+    {
+      "id": "740adda9-eec5-4a40-8a45-2b4a5a5984c8",
+      "name": "Verifications",
+      "description": {
+        "content": "Employment and education verification attempts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8ddae9db-9db7-4943-8908-298792754387",
+          "name": "Get verification attempts",
+          "request": {
+            "name": "Get verification attempts",
+            "description": {
+              "content": "Retrieve the history of employment and education verification attempts for an order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order",
+                ":id",
+                "verification-attempts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "176f7a1d-6d16-409d-be6b-abb53e78a159",
+              "name": "Verification attempt history.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order",
+                    ":id",
+                    "verification-attempts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accuratebackground.com/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.accuratebackground.com/v3/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "322425f0-0ef6-4cb6-ba09-f0276a32ead6",
+    "name": "Accurate Background Adjudication Verifications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Accurate API (v3) lets platforms embed employment background screening into their own web and mobile applications. Integrators create candidates, order preset or custom screening packages, track order status and estimated completion time, attach documents, adjudicate results, and retrieve completed reports. A free developer account and a sandbox environment are available for testing; production access is provisioned under a screening services agreement.\n\nThis OpenAPI document was authored by API Evangelist from Accurate's published developer documentation (developer.accuratebackground.com and accurate.readme.io). Paths and HTTP methods reflect the documented endpoints; request and response schemas are summarized rather than exhaustively modeled. Verify the authoritative contract in Accurate's own API reference.\n\nContact Support:\n Name: Accurate Background",
+      "type": "text/plain"
+    }
+  }
+}

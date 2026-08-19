@@ -1,0 +1,221 @@
+{
+  "item": [
+    {
+      "id": "69299a66-7d8f-4e54-8a7f-157bd8a2bdb6",
+      "name": "Reports",
+      "description": {
+        "content": "Completed screening results and reports.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9386ab8b-d5fe-4738-9024-f484268858bb",
+          "name": "Get candidate invitation link",
+          "request": {
+            "name": "Get candidate invitation link",
+            "description": {
+              "content": "Retrieve the candidate login/invitation link for an order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order",
+                ":id",
+                "invitation-link"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39f89235-abec-4121-b239-eb4a63ab0b10",
+              "name": "The invitation link.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order",
+                    ":id",
+                    "invitation-link"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a3ca469-fb89-4688-8c65-0c7647b47ccc",
+          "name": "Retrieve report",
+          "request": {
+            "name": "Retrieve report",
+            "description": {
+              "content": "Retrieve the completed background-check report for an order as a PDF or base64-encoded HTML once the order is complete.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "order",
+                ":id",
+                "report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57645663-979a-4c37-8679-6da404c3f558",
+              "name": "The completed report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "order",
+                    ":id",
+                    "report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accuratebackground.com/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.accuratebackground.com/v3/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "332da4ac-026f-490a-9d12-3a0772f41013",
+    "name": "Accurate Background Adjudication Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Accurate API (v3) lets platforms embed employment background screening into their own web and mobile applications. Integrators create candidates, order preset or custom screening packages, track order status and estimated completion time, attach documents, adjudicate results, and retrieve completed reports. A free developer account and a sandbox environment are available for testing; production access is provisioned under a screening services agreement.\n\nThis OpenAPI document was authored by API Evangelist from Accurate's published developer documentation (developer.accuratebackground.com and accurate.readme.io). Paths and HTTP methods reflect the documented endpoints; request and response schemas are summarized rather than exhaustively modeled. Verify the authoritative contract in Accurate's own API reference.\n\nContact Support:\n Name: Accurate Background",
+      "type": "text/plain"
+    }
+  }
+}

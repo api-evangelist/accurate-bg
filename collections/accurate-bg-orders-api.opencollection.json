@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Accurate Background Adjudication Orders API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.accuratebackground.com/v3/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accuratebackground.com/v3/order"
+          },
+          "docs": "Request to complete a background check on a specific candidate."
+        },
+        {
+          "info": {
+            "name": "Retrieve all orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accuratebackground.com/v3/orders"
+          },
+          "docs": "Retrieve and filter orders by query parameters."
+        },
+        {
+          "info": {
+            "name": "Retrieve order by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accuratebackground.com/v3/order/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a single order, its status, and its searches."
+        },
+        {
+          "info": {
+            "name": "Get order ETA",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accuratebackground.com/v3/order/:id/eta",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Estimated completion time for an order."
+        },
+        {
+          "info": {
+            "name": "Get order changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accuratebackground.com/v3/order/:id/changes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List of modifications made to an order."
+        },
+        {
+          "info": {
+            "name": "Reinitiate order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accuratebackground.com/v3/order/:id/reinitiate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reset a cancelled interactive order so the candidate can resume."
+        },
+        {
+          "info": {
+            "name": "Resend invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accuratebackground.com/v3/order/:id/invitation",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resend the candidate invitation email for an interactive order."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

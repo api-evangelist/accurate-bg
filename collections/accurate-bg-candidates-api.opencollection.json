@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Accurate Background Adjudication Candidates API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.accuratebackground.com/v3/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Candidates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve all candidates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accuratebackground.com/v3/candidates"
+          },
+          "docs": "Retrieve all candidates for the authenticated company account."
+        },
+        {
+          "info": {
+            "name": "Create candidate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accuratebackground.com/v3/candidate"
+          },
+          "docs": "Creates a candidate that can then be submitted within an order-creation payload."
+        },
+        {
+          "info": {
+            "name": "Update candidate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.accuratebackground.com/v3/candidate"
+          },
+          "docs": "Updates an existing candidate. Changes apply to future orders only."
+        },
+        {
+          "info": {
+            "name": "Retrieve candidate by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accuratebackground.com/v3/candidate/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve candidate by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

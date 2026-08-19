@@ -1,0 +1,113 @@
+{
+  "item": [
+    {
+      "id": "d5a03fd0-12e3-48fe-ab5f-6500e4007900",
+      "name": "Utility",
+      "description": {
+        "content": "Connectivity and health checks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d38139c3-0a8f-4ddd-afdf-6ac25b0a2f53",
+          "name": "Alive / ping test",
+          "request": {
+            "name": "Alive / ping test",
+            "description": {
+              "content": "Connectivity test that does not require authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "alive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "309ba6fa-5066-45a6-885f-70d0d82c5d66",
+              "name": "Service is reachable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "alive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accuratebackground.com/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.accuratebackground.com/v3/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e35069f8-149a-454f-b461-0d0a70e1faca",
+    "name": "Accurate Background Adjudication Utility API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Accurate API (v3) lets platforms embed employment background screening into their own web and mobile applications. Integrators create candidates, order preset or custom screening packages, track order status and estimated completion time, attach documents, adjudicate results, and retrieve completed reports. A free developer account and a sandbox environment are available for testing; production access is provisioned under a screening services agreement.\n\nThis OpenAPI document was authored by API Evangelist from Accurate's published developer documentation (developer.accuratebackground.com and accurate.readme.io). Paths and HTTP methods reflect the documented endpoints; request and response schemas are summarized rather than exhaustively modeled. Verify the authoritative contract in Accurate's own API reference.\n\nContact Support:\n Name: Accurate Background",
+      "type": "text/plain"
+    }
+  }
+}

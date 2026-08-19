@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Accurate Background Adjudication Utility API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.accuratebackground.com/v3/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Utility",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Alive / ping test",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accuratebackground.com/v3/alive"
+          },
+          "docs": "Connectivity test that does not require authentication."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,196 @@
+{
+  "item": [
+    {
+      "id": "295e27b6-dc26-43a4-93ad-8fa6a9c2f9e0",
+      "name": "Packages",
+      "description": {
+        "content": "Screening packages available on an account.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "93d30b5c-7844-4e72-8620-355a5139b40d",
+          "name": "Retrieve packages",
+          "request": {
+            "name": "Retrieve packages",
+            "description": {
+              "content": "Retrieve all active screening packages on the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "packages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8c3c7ad4-767d-4d92-90fb-d9700894b0f1",
+              "name": "A list of packages.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "packages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16309f1e-8113-4b91-857e-f736b27005d6",
+          "name": "Get package by type",
+          "request": {
+            "name": "Get package by type",
+            "description": {},
+            "url": {
+              "path": [
+                "package",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5102639b-3636-4627-a87a-ea0fe03cd8fd",
+              "name": "The requested package.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "package",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.accuratebackground.com/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.accuratebackground.com/v3/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cb1b0f13-7206-4803-9a75-e62fe138c5d8",
+    "name": "Accurate Background Adjudication Packages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Accurate API (v3) lets platforms embed employment background screening into their own web and mobile applications. Integrators create candidates, order preset or custom screening packages, track order status and estimated completion time, attach documents, adjudicate results, and retrieve completed reports. A free developer account and a sandbox environment are available for testing; production access is provisioned under a screening services agreement.\n\nThis OpenAPI document was authored by API Evangelist from Accurate's published developer documentation (developer.accuratebackground.com and accurate.readme.io). Paths and HTTP methods reflect the documented endpoints; request and response schemas are summarized rather than exhaustively modeled. Verify the authoritative contract in Accurate's own API reference.\n\nContact Support:\n Name: Accurate Background",
+      "type": "text/plain"
+    }
+  }
+}

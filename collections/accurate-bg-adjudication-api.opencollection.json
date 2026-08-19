@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Accurate Background Adjudication API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.accuratebackground.com/v3/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Adjudication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Adjudicate order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accuratebackground.com/v3/order/:id/adjudicate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Make a pass/fail adjudication decision on a completed order without logging into the portal."
+        },
+        {
+          "info": {
+            "name": "Reassess adjudication",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.accuratebackground.com/v3/order/:id/reassess",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reassess an adjudication where jurisdiction rules require it (for example LA City/County individualized assessment)."
+        },
+        {
+          "info": {
+            "name": "Update position location",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.accuratebackground.com/v3/order/:id/location",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update the job/position location used for compliant decisioning."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

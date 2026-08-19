@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Accurate Background Adjudication Reports API",
+    "version": "3.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.accuratebackground.com/v3/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get candidate invitation link",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accuratebackground.com/v3/order/:id/invitation-link",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the candidate login/invitation link for an order."
+        },
+        {
+          "info": {
+            "name": "Retrieve report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.accuratebackground.com/v3/order/:id/report",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the completed background-check report for an order as a PDF or base64-encoded HTML once the order is complete."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
