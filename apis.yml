@@ -12,6 +12,18 @@ description: Accurate Background is an employment background screening and workf
   reports, adjudicate results, and receive status updates via webhooks. A free
   developer account and sandbox environment are available for testing; production
   access is provisioned under a screening services agreement.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
