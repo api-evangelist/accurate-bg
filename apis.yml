@@ -194,7 +194,7 @@ apis:
   humanURL: https://accurate.readme.io/reference
   baseURL: https://api.accuratebackground.com/v3
   tags:
-  - Verifications
+  - Verification
   tags_raw:
   - Verifications
   properties:
