@@ -1,15 +1,7 @@
 {
   "provider": "accurate-bg",
   "sources": [
-    "accurate-bg-adjudication-api-openapi.yml",
-    "accurate-bg-candidates-api-openapi.yml",
-    "accurate-bg-documents-api-openapi.yml",
-    "accurate-bg-notifications-api-openapi.yml",
-    "accurate-bg-orders-api-openapi.yml",
-    "accurate-bg-packages-api-openapi.yml",
-    "accurate-bg-reports-api-openapi.yml",
-    "accurate-bg-utility-api-openapi.yml",
-    "accurate-bg-verifications-api-openapi.yml"
+    "_original/accurate-bg-openapi.yml"
   ],
   "outputs": [
     "accurate-bg-adjudication-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "accurate-bg-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "accurate-bg-adjudication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "accurate-bg-candidates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "accurate-bg-documents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "accurate-bg-notifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "accurate-bg-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "accurate-bg-packages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "accurate-bg-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "accurate-bg-utility-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "accurate-bg-verifications-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

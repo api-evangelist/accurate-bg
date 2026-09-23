@@ -1,10 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Accurate Background Adjudication Packages API
-  description: 'The Accurate API (v3) lets platforms embed employment background screening into their own web and mobile applications. Integrators create candidates, order preset or custom screening packages, track order status and estimated completion time, attach documents, adjudicate results, and retrieve completed reports. A free developer account and a sandbox environment are available for testing; production access is provisioned under a screening services agreement.
-
-
-    This OpenAPI document was authored by API Evangelist from Accurate''s published developer documentation (developer.accuratebackground.com and accurate.readme.io). Paths and HTTP methods reflect the documented endpoints; request and response schemas are summarized rather than exhaustively modeled. Verify the authoritative contract in Accurate''s own API reference.'
+  title: Accurate Background Packages API
+  description: The Accurate API (v3) lets platforms embed employment background screening into their own web and mobile applications.
   version: '3.0'
   contact:
     name: Accurate Background
@@ -27,6 +24,8 @@ paths:
       responses:
         '200':
           description: A list of packages.
+      operationId: getPackages
+      x-operation-id-source: derived
   /package/{type}:
     get:
       tags:
@@ -41,6 +40,8 @@ paths:
       responses:
         '200':
           description: The requested package.
+      operationId: getPackageByType
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oauth2ClientCredentials:
