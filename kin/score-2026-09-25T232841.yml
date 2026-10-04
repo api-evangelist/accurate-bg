@@ -1,22 +1,20 @@
-# Kin Score artifact — accurate-bg — 2026-09-01T063623
+# Kin Score artifact — accurate-bg — 2026-09-25T232841
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: accurate-bg
-  schema_version: 0.17.2
-  scored_at: '2026-09-01'
-  run_ts: 2026-09-01T063623
-  composite: 38.8
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T232841
+  composite: 36.7
   band: thin
   facets:
-    discoverability: 68.5
-    contract_quality: 46.3
-    governance: 0.0
-    operational_transparency: 31.6
-    developer_ergonomics: 28.6
-    commercial_clarity: 52.6
+    discoverability: 66.1
+    contract_quality: 44.1
     contract_governance: 0.0
-    access_clarity: 52.6
+    operational_transparency: 28.4
+    developer_ergonomics: 28.6
+    access_clarity: 49.5
   agent_readiness:
     score: 22.7
     band: agent-aware
@@ -40,6 +38,12 @@ kin_score:
       protected_resource_metadata: false
       dynamic_client_registration: false
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Employment & Payroll
+    regime_id: employment_payroll
+    score: 21.6
+    matched_via: weak_tags
   provenance:
     agentic_access: derived
     contracts:
