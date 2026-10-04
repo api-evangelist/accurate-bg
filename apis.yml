@@ -212,6 +212,9 @@ apis:
   - type: APIReference
     url: https://accurate.readme.io/reference
 common:
+- type: CapabilityMap
+  url: capabilities/accurate-bg-capability-edges.yml
+  name: Accurate Background Business Capability Map
 - type: AgenticAccess
   url: agentic-access/accurate-bg-agentic-access.yml
 - type: DomainSecurity

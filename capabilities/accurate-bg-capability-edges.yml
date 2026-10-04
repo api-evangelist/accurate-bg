@@ -1,0 +1,47 @@
+slug: accurate-bg
+provider: Accurate Background
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Adjudication
+  spec_file: accurate-bg-adjudication-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.8
+  evidence: 'POST /order/{id}/adjudicate — "Adjudicate order"; POST /order/{id}/reassess — "Reassess adjudication";
+    vendor: "employment background screening" embedded in "ATS/HRIS"'
+  reason: Adjudication of employment background-check results against hiring criteria is part of pre-employment
+    screening in the recruiting/hiring process, i.e. Talent Acquisition Management.
+- tag: Candidates
+  spec_file: accurate-bg-candidates-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.75
+  evidence: POST /candidate  postCandidate  Create candidate — "lets platforms embed employment background
+    screening"
+  reason: Candidate records in an employment background screening API; candidate screening is part of
+    the sourcing/hiring/onboarding motion, so Talent Acquisition Management is the honest mapping. Some
+    ambiguity as the vendor's core is screening/compliance rather than recruiting itself.
+- tag: Orders
+  spec_file: accurate-bg-orders-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.7
+  evidence: POST /order  Create order; POST /order/{id}/invitation  Resend invitation — "embed employment
+    background screening"
+  reason: An 'order' here is a background screening order placed on a candidate with invitation resend
+    and ETA; this is the pre-hire screening step of talent acquisition. Not procurement purchase orders.
+    Moderate confidence given the generic tag.
