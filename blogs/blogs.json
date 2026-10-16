@@ -1,0 +1,21 @@
+{
+  "repo": "accurate-bg",
+  "feeds": [
+    {
+      "source": "https://www.accurate.com/blog/",
+      "feed_url": "https://www.accurate.com/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.accurate.com/feed/",
+      "feed_url": "https://www.accurate.com/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-10-10T13:15:00Z"
+}
