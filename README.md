@@ -1,4 +1,4 @@
-# Accurate Background (accurate-bg)
+# Accurate Background
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,118 +64,141 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Accurate Background is an employment background screening and workforce compliance company. Its **Accurate API (v3)** lets HR platforms, ATS/HRIS vendors, and staffing tools embed background checks - criminal searches, SSN trace, employment and education verification, drug and health screening, driving records, identity and work authorization (Form I-9, E-Verify), and international screening - directly into their own web and mobile applications.
+Accurate Background is an employment background screening and workforce compliance company. Its Accurate API (v3) lets HR platforms, ATS/HRIS vendors, and staffing tools embed background checks - criminal searches, SSN trace, employment and education verification, drug and health screening, driving records, identity/work authorization (Form I-9, E-Verify), and international screening - directly into their own applications. Integrators create candidates, order preset or custom screening packages, track order status and ETA, retrieve completed reports, adjudicate results, and receive status updates via webhooks. A free developer account and sandbox environment are available for testing; production access is provisioned under a screening services agreement.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/accurate-bg/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/accurate-bg/refs/heads/main/apis.yml)
+**Areas:** Background Checks · Employment Screening · Identity Verification · Compliance · Human Resources · Screening
 
-## Access Model
+## Accurate Background on APIs.io
 
-This is a **real, documented public API** - not a fully gated partner API. Development is self-serve:
+Everything profiled for Accurate Background is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/accurate-bg/](https://apis.io/providers/accurate-bg/)** — or go straight to one of the APIs or properties below.
 
-- **Free developer account + sandbox** — sign up at [developer.accuratebackground.com](https://developer.accuratebackground.com/) and test the API immediately without contacting sales.
-- **Authentication** — API credentials are a `ClientID` / `ClientSecret` pair issued from the developer portal, exchanged (HTTP Basic) for an access token that authorizes requests (OAuth2 client-credentials style). The `/alive` connectivity check needs no auth.
-- **Production** — running real background checks is provisioned under a screening services agreement (contact sales). Billing is **per screening** (per package plus pass-through court/verification fees); Accurate does not publish public list pricing.
+### APIs (10)
 
-- **Base URL:** `https://api.accuratebackground.com/v3`
-- **API reference:** [accurate.readme.io/reference](https://accurate.readme.io/reference) (endpoint index at `accurate.readme.io/llms.txt`)
+- [Accurate Webhooks](https://apis.io/apis/accurate-bg/accurate-bg-webhooks-api/) — Webhook event notifications configured in the Accurate developer portal deliver order and report status updates (for example when an order completes) to a…
+- [Accurate Background Adjudication API](https://apis.io/apis/accurate-bg/accurate-bg-adjudication-api/) — Pass/fail decisioning on completed orders.
+- [Accurate Background Candidates API](https://apis.io/apis/accurate-bg/accurate-bg-candidates-api/) — Screening subjects that background checks are run against.
+- [Accurate Background Documents API](https://apis.io/apis/accurate-bg/accurate-bg-documents-api/) — Supporting documents attached to an order.
+- [Accurate Background Notifications API](https://apis.io/apis/accurate-bg/accurate-bg-notifications-api/) — Candidate-facing notifications.
+- [Accurate Background Orders API](https://apis.io/apis/accurate-bg/accurate-bg-orders-api/) — Background-check orders placed against a candidate.
+- [Accurate Background Packages API](https://apis.io/apis/accurate-bg/accurate-bg-packages-api/) — Screening packages available on an account.
+- [Accurate Background Reports API](https://apis.io/apis/accurate-bg/accurate-bg-reports-api/) — Completed screening results and reports.
+- [Accurate Background Utility API](https://apis.io/apis/accurate-bg/accurate-bg-utility-api/) — Connectivity and health checks.
+- [Accurate Background Verifications API](https://apis.io/apis/accurate-bg/accurate-bg-verifications-api/) — Employment and education verification attempts.
 
-The endpoints below are drawn from Accurate's own published documentation. The bundled OpenAPI (`openapi/accurate-bg-openapi.yml`) was authored by API Evangelist from that documentation: paths and HTTP methods reflect the documented endpoints, while request/response schemas are summarized rather than exhaustively modeled.
+### Published properties
 
-## Tags
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Background Checks
-- Employment Screening
-- Identity Verification
-- Compliance
-- HR Tech
-- Screening
+#### Agentic access (1)
 
-## Timestamps
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Created:** 2026-07-03
-- **Modified:** 2026-07-03
+- [Accurate Bg Agentic Access](https://apis.io/agentic-access/accurate-bg/accurate-bg-agentic-access/)
 
-## APIs
+#### Collections (9)
 
-### Accurate Candidates API
+Postman and Open Collection request collections.
 
-Create, retrieve, list, and update the candidates (screening subjects) that background checks are run against. A candidate is created first and then referenced in an order-creation payload; candidate updates apply to future orders only.
+- [Accurate Background Adjudication API](https://apis.io/collections/accurate-bg/open-accurate-bg-adjudication-api/)
+- [Accurate Background Adjudication Candidates API](https://apis.io/collections/accurate-bg/open-accurate-bg-candidates-api/)
+- [Accurate Background Adjudication Documents API](https://apis.io/collections/accurate-bg/open-accurate-bg-documents-api/)
+- [Accurate Background Adjudication Notifications API](https://apis.io/collections/accurate-bg/open-accurate-bg-notifications-api/)
+- [Accurate Background Adjudication Orders API](https://apis.io/collections/accurate-bg/open-accurate-bg-orders-api/)
+- [Accurate Background Adjudication Packages API](https://apis.io/collections/accurate-bg/open-accurate-bg-packages-api/)
+- [Accurate Background Adjudication Reports API](https://apis.io/collections/accurate-bg/open-accurate-bg-reports-api/)
+- [Accurate Background Adjudication Utility API](https://apis.io/collections/accurate-bg/open-accurate-bg-utility-api/)
+- [Accurate Background Adjudication Verifications API](https://apis.io/collections/accurate-bg/open-accurate-bg-verifications-api/)
 
-- **Base URL:** `https://api.accuratebackground.com/v3`
-- [Documentation](https://developer.accuratebackground.com/) · [API Reference](https://accurate.readme.io/reference) · [OpenAPI](openapi/accurate-bg-openapi.yml)
+#### Security (2)
 
-### Accurate Orders API
+Authentication, trust centre, and vulnerability disclosure.
 
-Place and manage background-check orders against a candidate - create an order for a chosen package, list and retrieve orders, check estimated completion time (ETA), review order changes, reinitiate cancelled interactive orders, and resend candidate invitations.
+- [Accurate Bg Authentication](https://apis.io/security/accurate-bg/accurate-bg-authentication/)
+- [Accurate Bg Domain Security](https://apis.io/security/accurate-bg/accurate-bg-domain-security/)
 
-- **Base URL:** `https://api.accuratebackground.com/v3`
-- [Documentation](https://developer.accuratebackground.com/) · [API Reference](https://accurate.readme.io/reference) · [OpenAPI](openapi/accurate-bg-openapi.yml)
+#### OAuth scopes (1)
 
-### Accurate Packages API
+The permissions the API asks for.
 
-List the active screening packages configured on an account and retrieve a package by type. Packages bundle the individual searches (criminal, verification, drug, MVR, international, etc.) that an order runs; integrators can use preset or account-configured custom packages.
+- [Accurate Bg Scopes](https://apis.io/scopes/accurate-bg/accurate-bg-scopes/)
 
-- **Base URL:** `https://api.accuratebackground.com/v3`
-- [Documentation](https://developer.accuratebackground.com/) · [API Reference](https://accurate.readme.io/reference) · [OpenAPI](openapi/accurate-bg-openapi.yml)
+#### Plans and pricing (1)
 
-### Accurate Reports API
+Published plans, tiers and prices.
 
-Retrieve completed screening results. The report endpoint returns the finished background-check report for an order as a PDF or base64-encoded HTML once the order is complete, and exposes the candidate invitation link for interactive orders.
+- [Accurate Bg Plans Pricing](https://apis.io/plans/accurate-bg/accurate-bg-plans-pricing/)
 
-- **Base URL:** `https://api.accuratebackground.com/v3`
-- [Documentation](https://developer.accuratebackground.com/) · [API Reference](https://accurate.readme.io/reference) · [OpenAPI](openapi/accurate-bg-openapi.yml)
+#### Rate limits (1)
 
-### Accurate Documents API
+Published request limits.
 
-Attach and manage supporting documents on an order - upload PDF, JPG, PNG, DOC, or DOCX files (up to 15MB), list an order's documents, and get, download, or delete an individual document.
+- [Accurate Bg Rate Limits](https://apis.io/rate-limits/accurate-bg/accurate-bg-rate-limits/)
 
-- **Base URL:** `https://api.accuratebackground.com/v3`
-- [Documentation](https://developer.accuratebackground.com/) · [API Reference](https://accurate.readme.io/reference) · [OpenAPI](openapi/accurate-bg-openapi.yml)
+#### FinOps (1)
 
-### Accurate Adjudication API
+What the API costs to run, by operation.
 
-Programmatically make an adjudication decision (pass/fail) on a completed order without logging into the portal, reassess an adjudication where jurisdiction rules require it, and update the position/job location that drives compliant decisioning.
+- [Accurate Bg Finops](https://apis.io/finops/accurate-bg/accurate-bg-finops/)
 
-- **Base URL:** `https://api.accuratebackground.com/v3`
-- [Documentation](https://developer.accuratebackground.com/) · [API Reference](https://accurate.readme.io/reference) · [OpenAPI](openapi/accurate-bg-openapi.yml)
+## Where to find this API
 
-### Accurate Verifications API
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-Retrieve the history of employment and education verification attempts for an order, giving integrators visibility into outreach progress on verification-heavy screenings.
-
-- **Base URL:** `https://api.accuratebackground.com/v3`
-- [Documentation](https://developer.accuratebackground.com/) · [API Reference](https://accurate.readme.io/reference) · [OpenAPI](openapi/accurate-bg-openapi.yml)
-
-### Accurate Notifications API
-
-Trigger candidate-facing notifications, such as sending the screening subject a copy of their completed report, supporting compliant candidate communication workflows.
-
-- **Base URL:** `https://api.accuratebackground.com/v3`
-- [Documentation](https://developer.accuratebackground.com/) · [API Reference](https://accurate.readme.io/reference) · [OpenAPI](openapi/accurate-bg-openapi.yml)
-
-### Accurate Webhooks
-
-Webhook event notifications configured in the Accurate developer portal deliver order and report status updates (for example when an order completes) to a consumer-hosted HTTPS endpoint, so integrators do not have to poll for status. These are server-to-endpoint HTTP callbacks, configured per environment (sandbox and production) - not a WebSocket.
-
-- **Base URL:** `https://api.accuratebackground.com/v3`
-- [Documentation](https://developer.accuratebackground.com/) · [API Reference](https://accurate.readme.io/reference)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/accurate-background)
 - [Website](https://www.accurate.com/)
 - [Documentation](https://developer.accuratebackground.com/)
-- [API Reference](https://accurate.readme.io/reference)
-- [Sign Up](https://developer.accuratebackground.com/)
-- [Plans](plans/accurate-bg-plans-pricing.yml)
-- [Rate Limits](rate-limits/accurate-bg-rate-limits.yml)
-- [Fin Ops](finops/accurate-bg-finops.yml)
+- [API reference](https://accurate.readme.io/reference)
+- [Sign up](https://developer.accuratebackground.com/)
+- [Blog](https://www.accurate.com/blog/)
 
-## Review
+## API Evangelist rating
 
-Does Accurate Background expose a documented public WebSocket API? **No.** The Accurate API (v3) is request/response REST over HTTPS; asynchronous order/report status is delivered via webhook HTTP callbacks, not a WebSocket. See [`review.yml`](review.yml).
+**Kin Score 28.8** — thin · rubric 0.24.0 · scored 2026-10-17
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 44.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 21.1 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 20.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 21.6** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/accurate-bg/](https://apis.io/providers/accurate-bg/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Accurate Background: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/accurate-bg/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
